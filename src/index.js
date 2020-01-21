@@ -203,7 +203,7 @@ ValineFactory.prototype._init = function(){
         let serverURLs = '';
         if(!root.config['serverURLs']){
             switch (id.slice(-9)) {
-                // TAB 
+                // TAB
                 case '-9Nh9j0Va':
                     prefix += 'tab.';
                     break;
@@ -339,6 +339,13 @@ ValineFactory.prototype._init = function(){
 }
 
 // 新建Counter对象
+// Valine会自动查找页面中class值为leancloud_visitors的元素，获取其id为查询条件。
+// 并将得到的值填充到其class的值为leancloud-visitors-count的子元素里：
+// <!-- id 将作为查询条件 -->
+// <span id="<Your/Path/Name>" class="leancloud_visitors" data-flag-title="Your Article Title">
+//     <em class="post-meta-item-text">阅读量 </em>
+//     <i class="leancloud-visitors-count">1000000</i>
+// </span>
 let createCounter = function (Counter, o) {
     let newCounter = new Counter();
     let acl = new AV.ACL();
@@ -427,7 +434,7 @@ let CounterFactory = {
 
 /**
  * LeanCloud SDK Query Util
- * @param {String} url 
+ * @param {String} url
  * @param {String} id
  */
 ValineFactory.prototype.Q = function (k) {
@@ -486,8 +493,8 @@ ValineFactory.prototype.installLocale = function (locale, mode) {
 }
 
 /**
- * 
- * @param {String} path 
+ *
+ * @param {String} path
  */
 ValineFactory.prototype.setPath = function (path) {
     _path = path || _path;
@@ -591,7 +598,7 @@ ValineFactory.prototype.bind = function (option) {
 
     /**
      * 评论框内容变化事件
-     * @param {HTMLElement} el 
+     * @param {HTMLElement} el
      */
     let syncContentEvt = (_el) => {
         let _v = 'comment';
